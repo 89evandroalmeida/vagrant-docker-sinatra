@@ -1,0 +1,12 @@
+web:
+  build: .
+  command: bundle exec ruby app.rb
+  ports:
+  - "4567:4567"
+  links:
+  - db  
+  environment:
+    - RAILS_ENV=production
+    - RACK_ENV=production
+db:
+  image: mongo
